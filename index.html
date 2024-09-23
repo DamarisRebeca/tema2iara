@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><strong>Informatii despre oras</strong></h1>
+    <div>
+      <!--Se introduce nr de locuitori-->
+        <label for="locuitori">Numar locuitori:</label>
+        <input type="number" id="locuitori" required >
+        <br><br>
+
+        <!--Se introduce numele orasului-->
+        <label for="NumeOras">Numele orasului:</label>
+        <input type="text" id="NumeOras" minlength="7" maxlength="12" oninput="verificaOras()" >
+        <br></br>
+        <br><br>
+    
+
+        <!--Tipul Orasului-->
+       <label for="tipOras">Tipul orasului:</label>
+        <select id="tipOras">
+            <option value="municipiu">Municipiu</option>
+            <option value="resedinta">Resedinta</option>
+        </select>
+        <br><br>
+  
+
+        <!--Facilitati: Cinema, Teatru, Stadion , Biblioteca-->
+        <label for="facilitati">Facilitati:</label>
+        <select id="facilitati">
+            <option value="cinema">Cinema</option>
+            <option value="teatru">Teatru</option>
+            <option value="stadion">Stadion</option>
+            <option value="biblioteca">Biblioteca</option>
+        </select>
+        <br><br>
+   
+
+        <!--Buton afiseaza, pana cand numele orasului are min 7 caractere-->
+        <button onclick="afiseazaInfo()" id="afiseaza" style="background-color: cadetblue;"disabled>Afiseaza</button>
+        <h2>Informatiile orasului</h2>
+        <div id="butonAfisInfo"></div>
+    </div>
+
+    <script>
+        //Functia care verifica lungimea numelui orasului
+        function verificaOras(){
+            let NumeOras= document.getElementById("NumeOras").value.length
+            let afiseaza=document.getElementById("afiseaza")
+            if(NumeOras >=7){
+               // document.getElementById(NumeOras).disabled=false
+               // document.getElementById(afiseaza).disabled=false
+               afiseaza.disabled=false
+            }
+            else{
+                //document.getElementById(NumeOras).disabled=true
+               // document.getElementById(afiseaza).disabled=true
+               afiseaza.disabled=true
+            }
+        }
+    </script>
+1111
+</body>
+</body>
+</html>
