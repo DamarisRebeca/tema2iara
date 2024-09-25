@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatii orase</title>
+    
+</head>
+<body>
+
+    <h1>Orasele noastre</h1>
+    <form id="orase">
+        <label for="populatie">Numar locuitori:</label>
+        <input type="number" id="populatie" required>
+        <br><br>
+
+
+        <label for="numeOras">Nume oras:</label>
+        <input type="text" id="numeOras" required>
+        <br><br>
+
+
+        <label for="tip">Tip oras:</label>
+        <select id="tip">
+            <option value="municipiu">Municipiu</option>
+            <option value="rezidenta">Rezidenta</option>
+            <br><br>
+        </select>
+     </form>
+
+     <form name="facilitati">
+         <p>Facilitati:</p>
+         <input type="checkbox" id="biblioteca" name="facilitati" value="Biblioteca">
+         <label for="biblioteca">Biblioteca</label><br>
+         <input type="checkbox" id="teatru" name="facilitati" value="Teatru">
+         <label for="teatru">Teatru</label><br>
+         <input type="checkbox" id="stadion" name="facilitati" value="Stadion">
+         <label for="stadion">Stadion</label><br>
+         <input type="checkbox" id="cinema" name="facilitati" value="Cinema">
+         <label for="cinema">Cinema</label>
+     </form>
+    
+    <button type="button" id="butonulAfiseaza" disabled>Afiseaza</button>
+
+    <div id="output"></div>
+
+    <script>
+        const numeOrasInput = document.getElementById('numeOras');
+        const butonulAfiseaza = document.getElementById('butonulAfiseaza');
+        const outputDiv = document.getElementById('output');
+
+        
+        numeOrasInput.addEventListener('input', () => {
+            butonulAfiseaza.disabled = numeOrasInput.value.length < 7;
+        });
+
+     
+        function getSelectedFacilities() {
+            const facilities = [];
+            const checkboxes = document.querySelectorAll('input[name="facilitati"]:checked');
+            checkboxes.forEach(checkbox => facilities.push(checkbox.value));
+            return facilities.join(', ');
+        }
+
+   
+        butonulAfiseaza.addEventListener('click', () => {
+            const populatie = document.getElementById('populatie').value;
+            const numeOras = numeOrasInput.value;
+            const tip = document.getElementById('tip').value;
+            const facilitati = getSelectedFacilities();
+
+            outputDiv.innerHTML = `
+                <h2>Informatii oras</h2>
+                <p>Numele orasului: ${numeOras}</p>
+                <p>Numarul locuitorilor: ${populatie}</p>
+                <p>Tip oras: ${tip}</p>
+                <p>Facilitati: ${facilitati || 'Niciuna'}</p>
+            `;
+        });
+    </script>
+
+</body>
+</html>

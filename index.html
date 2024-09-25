@@ -42,6 +42,7 @@
 
         <!--Buton afiseaza, pana cand numele orasului are min 7 caractere-->
         <button onclick="afiseazaInfo()" id="afiseaza" style="background-color: cadetblue;"disabled>Afiseaza</button>
+        <button onclick="oras.salvareInf()" id="salvareInf"disabled>Salveaza</button>
         <h2>Informatiile orasului</h2>
         <div id="butonAfisInfo"></div>
     </div>
@@ -62,8 +63,46 @@
                afiseaza.disabled=true
             }
         }
+        //Functie care afiseaza informatiile 
+       //function afiseazaInfo(){
+            //let numarLocuitori = document.getElementById("locuitori").value
+            //let NumeOras = document.getElementById("NumeOras").value
+           // let tipOras = document.getElementById("tipOras").value
+            //let facilitati = document.getElementById("facilitati").value
+      //  } 
+
+      let oras ={
+        NumeOras:"",
+        locuitori:"",
+        resedinta_municipiu:"",
+        stadio:"",
+        teatru:"",
+        biblioteca:"",
+        cinema:"",
+
+        salvareInf: function(){
+            this.NumeOras = document.getElementById("NumeOras").value
+            this.locuitori=document.getElementById("locuitori").value
+            this.resedinta_municipiu=0
+            this.stadio=0
+            this.teatru=0
+            this.biblioteca=0
+            this.cinema=0
+            let check1=document.getElementById("tipOras").checked
+            let check2= document.getElementById()
+        }
+
+      }
+
+        
+        
+
+        
+
+
     </script>
-1111
+
+
 </body>
 </body>
 </html>
